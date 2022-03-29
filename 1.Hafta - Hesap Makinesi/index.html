@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="tr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  <title>Hesap Makinesi</title>  
+</head>
+<body class="container my-5 bg-light">
+  <h3 class="text-center text-dark">Hesap Makinesi - Üretken Akademi</h3>
+  <hr class="mb-4">
+  <div style="width: 60%;" class="mx-auto">
+    <table class="table bg-dark table-bordered">
+      <tbody>
+        <tr>
+          <td class="align-middle" colspan="3">
+            <div class="input-group-lg">
+              <input type="number" id="panel" class="form-control">
+            </div>
+          </td>
+          <td><button type="button" onclick="setClear()" class="btn btn-dark btn-block btn-lg">C</button></td>
+        </tr>
+        <tr>
+          <td><button type="button" onclick="calculate(1)" class="btn btn-dark btn-block btn-lg">1</button></td>
+          <td><button type="button" onclick="calculate(2)" class="btn btn-dark btn-block btn-lg">2</button></td>
+          <td><button type="button" onclick="calculate(3)" class="btn btn-dark btn-block btn-lg">3</button></td>
+          <td><button type="button" onclick="operator('/')" class="btn btn-dark btn-block btn-lg">/</button></td>
+        </tr>
+        <tr>
+          <td><button type="button" onclick="calculate(4)" class="btn btn-dark btn-block btn-lg">4</button></td>
+          <td><button type="button" onclick="calculate(5)" class="btn btn-dark btn-block btn-lg">5</button></td>
+          <td><button type="button" onclick="calculate(6)" class="btn btn-dark btn-block btn-lg">6</button></td>
+          <td><button type="button" onclick="operator('-')" class="btn btn-dark btn-block btn-lg">-</button></td>
+        </tr>
+        <tr>
+          <td><button type="button" onclick="calculate(7)" class="btn btn-dark btn-block btn-lg">7</button></td>
+          <td><button type="button" onclick="calculate(8)" class="btn btn-dark btn-block btn-lg">8</button></td>
+          <td><button type="button" onclick="calculate(9)" class="btn btn-dark btn-block btn-lg">9</button></td>
+          <td><button type="button" onclick="operator('+')" class="btn btn-dark btn-block btn-lg">+</button></td>
+        </tr>
+        <tr>
+          <td><button type="button" onclick="calculate('.')" class="btn btn-dark btn-block btn-lg">.</button></td>
+          <td><button type="button" onclick="calculate(0)" class="btn btn-dark btn-block btn-lg">0</button></td>
+          <td><button type="button" onclick="setResult()" class="btn btn-dark btn-block btn-lg">=</button></td>
+          <td><button type="button" onclick="operator('*')" class="btn btn-dark btn-block btn-lg">*</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script>
+    var firstNumber
+    var secondNumber
+    var ops = null
+
+    function calculate(elem) {
+      document.getElementById("panel").value = document.getElementById("panel").value + elem;
+    }
+
+    function setClear() {
+      document.getElementById("panel").value = ''
+      firstNumber = 0
+      secondNumber = 0
+      ops = null
+    }
+
+    function operator(value) {
+      if (ops == null) {
+        ops = value
+        firstNumber = document.getElementById("panel").value
+        document.getElementById("panel").value = ''
+      } else {
+        secondNumber = document.getElementById("panel").value
+        document.getElementById("panel").value = ''
+        secondNumber = parseFloat(secondNumber);
+        firstNumber = parseFloat(firstNumber);
+        switch (ops) {
+          case "/":
+            document.getElementById("panel").value = firstNumber / secondNumber
+            break;
+          case "*":
+            document.getElementById("panel").value = firstNumber * secondNumber
+            break;
+          case "+":
+            document.getElementById("panel").value = firstNumber + secondNumber
+            break;
+          case "-":
+            document.getElementById("panel").value = firstNumber - secondNumber
+            break;
+        }
+      }
+    }
+
+    function setResult() {
+      secondNumber = document.getElementById("panel").value
+      secondNumber = parseFloat(secondNumber);
+      firstNumber = parseFloat(firstNumber);
+      switch (ops) {
+        case "/":
+          document.getElementById("panel").value = firstNumber / secondNumber
+          break;
+        case "*":
+          document.getElementById("panel").value = firstNumber * secondNumber
+          break;
+        case "+":
+          document.getElementById("panel").value = firstNumber + secondNumber
+          break;
+        case "-":
+          document.getElementById("panel").value = firstNumber - secondNumber
+          break;
+      }
+
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
