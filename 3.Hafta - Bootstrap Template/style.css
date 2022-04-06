@@ -1,0 +1,54 @@
+*{
+    box-sizing: border-box;
+}
+.logo {
+    width: 170px;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+.navbar {
+    background-color: black !important;
+}
+
+.bg-black {
+    background-color: black;
+}
+.imgLogo {
+    width: 200px;
+}
+
+footer a {
+    color: black;
+    display: block;
+}
+
+
+/* counter css */
+.counter-box {
+    padding: 40px 20px 37px;
+    text-align: center;
+    color: black !important;
+}
+
+.counter-box i {
+    font-size: 60px;
+    margin: 0 0 15px;
+}
+
+
+.counter {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 28px
+}
+
+.counterAfter {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 28px
+}
+
+
