@@ -1,38 +1,39 @@
 var cards = [{
         id: 1,
-        img: "https://picsum.photos/id/232/400/400"
+        img: "https://picsum.photos/id/250/400/400"
     },
     {
         id: 2,
-        img: "https://picsum.photos/id/233/400/400"
+        img: "https://picsum.photos/id/456/400/400"
     },
     {
         id: 3,
-        img: "https://picsum.photos/id/234/400/400"
+        img: "https://picsum.photos/id/488/400/400"
     },
     {
         id: 4,
-        img: "https://picsum.photos/id/235/400/400"
+        img: "https://picsum.photos/id/433/400/400"
     },
     {
         id: 5,
-        img: "https://picsum.photos/id/236/400/400"
+        img: "https://picsum.photos/id/400/400/400"
     },
     {
         id: 6,
         img: "https://picsum.photos/id/237/400/400"
     },
 ]
- 
+
 var counter = 0
+var score = 0
+var move = 10
 var firstDivCard
 var firstImgCard
 var secondDivCard
 var secondImgCard
 var fcc
 var scc
-var score = 0
-var move = 10
+
 
 
 function replaceRandomCard() {
@@ -49,17 +50,21 @@ function replaceRandomCard() {
             return item !== random2
         })
 
-        var card_template = `<img src=" ` + cards[i].img + ` "class="` + i + ` ">`
+        var cardTemplate = `<img src=" ` + cards[i].img + ` "class="` + i + ` ">`
+        var coverTemplate = `<img src="https://uretkenakademi.com/wp-content/uploads/2021/12/logo.svg">`
         var idLocation = 'img-' + random
-        document.getElementById(idLocation).innerHTML = card_template
+        var coverLocation = 'block-' + random
+        document.getElementById(idLocation).innerHTML = cardTemplate
+        document.getElementById(coverLocation).innerHTML = coverTemplate
 
         var idLocation = 'img-' + random2
-        document.getElementById(idLocation).innerHTML = card_template
+        var coverLocation = 'block-' + random2
+        document.getElementById(idLocation).innerHTML = cardTemplate
+        document.getElementById(coverLocation).innerHTML = coverTemplate
     }
-
 }
 
-function selectCard1(a) {
+function selectCard(a) {
     let imgId = "#img-" + a
     let divId = "#block-" + a
     let check = $(divId).hasClass("d-none")
@@ -68,7 +73,6 @@ function selectCard1(a) {
         firstDivCard = divId
         firstImgCard = imgId
         fcc = $(firstImgCard).children().attr("class")
-
     }
 
     if (counter == 1) {
@@ -96,7 +100,6 @@ function selectCard1(a) {
                 $(secondDivCard).addClass("d-none")
                 counter = 0
             }, 500);
-
     }
 
 
@@ -112,25 +115,140 @@ function selectCard1(a) {
                 $(firstDivCard).removeClass("d-none")
                 $(secondDivCard).removeClass("d-none")
                 counter = 0
-
             }, 200);
-
-
     }
 
     if (move == 0) {
-        alert("Kaybettin!")
-        location.reload();
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+              confirmButton: 'btn btn-success ml-3',
+              cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+          })          
+          swalWithBootstrapButtons.fire({
+            title: 'Loser!',
+            text: "Another Game?",
+            icon: 'error',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, do it!',
+            cancelButtonText: 'No, Im a coward...',
+            reverseButtons: true
+          }).then((result) => {
+            if (result.isConfirmed) {
+                location.reload();
+            } else if (
+              result.dismiss === Swal.DismissReason.cancel
+            ) {
+              swalWithBootstrapButtons.fire({
+                title:'Ok Than',
+                text:'Go back to safe live!',
+                confirmButtonText: 'OK',                
+              }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = 'https://www.google.com/';
+                } 
+              })
+            }
+          })
     }
-    console.log(score);
+
     if (score > 5) {
-        alert("Kazandın!")
-        location.reload();
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+              confirmButton: 'btn btn-success ml-3',
+              cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+          })          
+          swalWithBootstrapButtons.fire({
+            title: 'We Have A Winner!',
+            text: "Another Game?",
+            icon: 'success',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, do it!',
+            cancelButtonText: 'No, Im a coward...',
+            reverseButtons: true
+          }).then((result) => {
+            if (result.isConfirmed) {
+                location.reload();
+            } else if (
+              result.dismiss === Swal.DismissReason.cancel
+            ) {
+              swalWithBootstrapButtons.fire({
+                title:'Ok Than',
+                text:'Go back to safe live!',
+                confirmButtonText: 'OK',                
+              }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = 'https://www.google.com/';
+                } 
+              })
+            }
+          })
     }
 }
 
+var coverTemplate = `<img src="https://uretkenakademi.com/wp-content/uploads/2021/12/logo.svg">`
 
+$(document).ready(function () {
+    // after reload check status 
+    if (localStorage.getItem("Mode") == "copyrightOff") {
+        for (let i = 0; i < 12; i++) {
+            $("body").removeClass("copyrightMode")
+            let coverLocation = 'block-' + i
+            document.getElementById(coverLocation).innerHTML = coverTemplate
+        }
+    } else if (localStorage.getItem("Mode") == "copyrightOn") {
+        for (let i = 0; i < 12; i++) {
+            $("body").addClass("copyrightMode")
+            $("#copyrightStatus").prop("checked", true);
+            let coverLocation = 'block-' + i
+            let coverTemplate = `<img src="https://iconape.com/wp-content/png_logo_vector/smile.png">`
+            document.getElementById(coverLocation).innerHTML = coverTemplate
+        }
+    }
 
+    if (localStorage.getItem("Darkmode") == "darkModeOn") {
+        $("#darkModeStatus").prop("checked", true);
+        $("body").addClass("bg-dark")
+        $("body").removeClass("bg-light")
+    } else if (localStorage.getItem("Darkmode") == "darkModeOff") {
+        $("body").removeClass("bg-dark")
+        $("body").addClass("bg-light")
+    }
 
+    $("#darkModeStatus").click(function () {
+        if ($("body").hasClass("bg-dark")) {
+            localStorage.setItem("Darkmode", "darkModeOff");
+            $("body").removeClass("bg-dark")
+            $("body").addClass("bg-light")
+        } else {
+            localStorage.setItem("Darkmode", "darkModeOn");
+            $("body").addClass("bg-dark")
+            $("body").removeClass("bg-light")
+        }
+    });
 
-replaceRandomCard()
+    $("#copyrightStatus").click(function () {
+        if ($("body").hasClass("copyrightMode")) {
+            for (let i = 0; i < 12; i++) {
+                $("body").removeClass("copyrightMode")
+                localStorage.setItem("Mode", "copyrightOff");
+                let coverLocation = 'block-' + i
+                document.getElementById(coverLocation).innerHTML = coverTemplate
+            }
+        } else {
+            for (let i = 0; i < 12; i++) {
+                $("body").addClass("copyrightMode")
+                localStorage.setItem("Mode", "copyrightOn");
+                let coverTemplate = `<img src="https://iconape.com/wp-content/png_logo_vector/smile.png">`
+                let coverLocation = 'block-' + i
+                document.getElementById(coverLocation).innerHTML = coverTemplate
+            }
+        }
+    });
+});
+
+AOS.init();
+replaceRandomCard();
