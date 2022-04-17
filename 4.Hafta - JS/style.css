@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
 }
+
 .bg-dark {
     background-color: black !important;
     color: white !important;
@@ -9,6 +10,12 @@
 .bg-light {
     background-color: white !important;
     color: black !important;
+}
+
+/* Setting Social İcon */
+.iconSize {
+    width: 30px;
+    height: 30px;
 }
 
 /* Switch Button Size  */
@@ -29,12 +36,6 @@
     border-radius: calc(2rem - (1.5rem / 2));
 }
 
-.custom-switch.custom-switch-md .custom-control-input:checked ~ .custom-control-label::after {
+.custom-switch.custom-switch-md .custom-control-input:checked~.custom-control-label::after {
     transform: translateX(calc(1.5rem - 0.25rem));
 }
-
-
-.iconSize {
-    width: 30px;
-    height: 30px;
-  }

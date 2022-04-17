@@ -33,13 +33,16 @@ var secondDivCard
 var secondImgCard
 var fcc
 var scc
-
+var coverTemplate = `<img src="https://uretkenakademi.com/wp-content/uploads/2021/12/logo.svg">`
 
 
 function replaceRandomCard() {
-    var location = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-    var checklist = location
+    let location = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+
     for (let i = 0; i < 7; i++) {
+        let cardTemplate = `<img src=" ` + cards[i].img + ` "class="` + i + ` ">`
+        let coverTemplate = `<img src="https://uretkenakademi.com/wp-content/uploads/2021/12/logo.svg">`
+
         const random = location[Math.floor(Math.random() * location.length)];
         location = location.filter(function (item) {
             return item !== random
@@ -50,8 +53,7 @@ function replaceRandomCard() {
             return item !== random2
         })
 
-        var cardTemplate = `<img src=" ` + cards[i].img + ` "class="` + i + ` ">`
-        var coverTemplate = `<img src="https://uretkenakademi.com/wp-content/uploads/2021/12/logo.svg">`
+        
         var idLocation = 'img-' + random
         var coverLocation = 'block-' + random
         document.getElementById(idLocation).innerHTML = cardTemplate
@@ -86,7 +88,7 @@ function selectCard(a) {
         $(divId).addClass("d-none")
         counter = counter + 1
     }
-
+    // Match Card
     if (scc == fcc && counter == 2 && scc != undefined) {
         score = score + 1
         $("#scoreid").html(score)
@@ -99,10 +101,9 @@ function selectCard(a) {
                 $(firstDivCard).addClass("d-none")
                 $(secondDivCard).addClass("d-none")
                 counter = 0
-            }, 500);
+            }, 300);
     }
-
-
+    // Unmatch Card
     if (counter == 2 && scc != fcc) {
         move = move - 1
         $("#moveid").html(move)
@@ -117,7 +118,7 @@ function selectCard(a) {
                 counter = 0
             }, 200);
     }
-
+    // Lose Sitiation (ALERT)
     if (move == 0) {
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
@@ -152,7 +153,7 @@ function selectCard(a) {
             }
           })
     }
-
+    // Win Situation (ALERT)
     if (score > 5) {
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
@@ -189,13 +190,11 @@ function selectCard(a) {
     }
 }
 
-var coverTemplate = `<img src="https://uretkenakademi.com/wp-content/uploads/2021/12/logo.svg">`
-
 $(document).ready(function () {
-    // after reload check status 
+    // After reload check status at LocalStorage
     if (localStorage.getItem("Mode") == "copyrightOff") {
         for (let i = 0; i < 12; i++) {
-            $("body").removeClass("copyrightMode")
+            $("body").removeClass("copyrightMode")            
             let coverLocation = 'block-' + i
             document.getElementById(coverLocation).innerHTML = coverTemplate
         }
