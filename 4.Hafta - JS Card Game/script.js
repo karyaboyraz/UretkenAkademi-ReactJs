@@ -35,7 +35,6 @@ var fcc
 var scc
 var coverTemplate = `<img src="https://uretkenakademi.com/wp-content/uploads/2021/12/logo.svg">`
 
-
 function replaceRandomCard() {
     let location = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
@@ -53,7 +52,6 @@ function replaceRandomCard() {
             return item !== random2
         })
 
-        
         var idLocation = 'img-' + random
         var coverLocation = 'block-' + random
         document.getElementById(idLocation).innerHTML = cardTemplate
@@ -122,12 +120,12 @@ function selectCard(a) {
     if (move == 0) {
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
-              confirmButton: 'btn btn-success ml-3',
-              cancelButton: 'btn btn-danger'
+                confirmButton: 'btn btn-success ml-3',
+                cancelButton: 'btn btn-danger'
             },
             buttonsStyling: false
-          })          
-          swalWithBootstrapButtons.fire({
+        })
+        swalWithBootstrapButtons.fire({
             title: 'Loser!',
             text: "Another Game?",
             icon: 'error',
@@ -135,34 +133,34 @@ function selectCard(a) {
             confirmButtonText: 'Yes, do it!',
             cancelButtonText: 'No, Im a coward...',
             reverseButtons: true
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
                 location.reload();
             } else if (
-              result.dismiss === Swal.DismissReason.cancel
+                result.dismiss === Swal.DismissReason.cancel
             ) {
-              swalWithBootstrapButtons.fire({
-                title:'Ok Than',
-                text:'Go back to safe live!',
-                confirmButtonText: 'OK',                
-              }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = 'https://www.google.com/';
-                } 
-              })
+                swalWithBootstrapButtons.fire({
+                    title: 'Ok Than',
+                    text: 'Go back to safe live!',
+                    confirmButtonText: 'OK',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = 'https://www.google.com/';
+                    }
+                })
             }
-          })
+        })
     }
     // Win Situation (ALERT)
     if (score > 5) {
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
-              confirmButton: 'btn btn-success ml-3',
-              cancelButton: 'btn btn-danger'
+                confirmButton: 'btn btn-success ml-3',
+                cancelButton: 'btn btn-danger'
             },
             buttonsStyling: false
-          })          
-          swalWithBootstrapButtons.fire({
+        })
+        swalWithBootstrapButtons.fire({
             title: 'We Have A Winner!',
             text: "Another Game?",
             icon: 'success',
@@ -170,31 +168,32 @@ function selectCard(a) {
             confirmButtonText: 'Yes, do it!',
             cancelButtonText: 'No, Im a coward...',
             reverseButtons: true
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
                 location.reload();
             } else if (
-              result.dismiss === Swal.DismissReason.cancel
+                result.dismiss === Swal.DismissReason.cancel
             ) {
-              swalWithBootstrapButtons.fire({
-                title:'Ok Than',
-                text:'Go back to safe live!',
-                confirmButtonText: 'OK',                
-              }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = 'https://www.google.com/';
-                } 
-              })
+                swalWithBootstrapButtons.fire({
+                    title: 'Ok Than',
+                    text: 'Go back to safe live!',
+                    confirmButtonText: 'OK',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = 'https://www.google.com/';
+                    }
+                })
             }
-          })
+        })
     }
 }
 
 $(document).ready(function () {
+    
     // After reload check status at LocalStorage
     if (localStorage.getItem("Mode") == "copyrightOff") {
         for (let i = 0; i < 12; i++) {
-            $("body").removeClass("copyrightMode")            
+            $("body").removeClass("copyrightMode")
             let coverLocation = 'block-' + i
             document.getElementById(coverLocation).innerHTML = coverTemplate
         }
@@ -248,6 +247,8 @@ $(document).ready(function () {
         }
     });
 });
+
+
 
 AOS.init();
 replaceRandomCard();

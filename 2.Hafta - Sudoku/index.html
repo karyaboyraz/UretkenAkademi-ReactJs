@@ -1,235 +1,225 @@
 <!doctype html>
 <html lang="tr">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Karya Boyraz - Sudoku</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <title>Karya Boyraz -Sudoku</title>
-    <style>
-        th {
-            text-align: center;
-        }
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    
+    <!-- Project CSS -->
+    <link rel="stylesheet" href="style.css">
 
-        table {
-            width: fit-content;
-        }
+    <!-- FontAwesome  -->
+    <script src="https://kit.fontawesome.com/3349325c82.js" crossorigin="anonymous"></script>
 
-        th {
-            padding: 0 !important;
-            width: 10px !important;
-            height: 10px !important;
-            background-color: white;
-        }
+    <!-- AOS Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
-        * {
-            box-sizing: border-box;
-        }
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
-        .bg-uretken {
-            background-color: yellowgreen;
-        }
-    </style>
+    <!-- Sweet Alert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
-
 <body>
-
-    <table style="width: max-content; height: max-content;" class="table table-bordered m-3 mx-auto">
+    <h2 class="text-center my-5">Sudoku</h2>
+    <hr class="container">
+    <table class="table table-bordered m-3 mx-auto">
         <tbody>
             <tr>
-                <th class="bg-uretken">
+                <th class="bg-yellowgreen">
                     <table style="width: 120px; height: 120px;" class="table table-bordered m-1">
                         <tbody>
                             <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
+                                <th id="A-1" >1</th>
+                                <th id="A-2" >1</th>
+                                <th id="A-3" >1</th>
                             </tr>
                             <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
+                                <th id="A-4" >1</th>
+                                <th id="A-5" >1</th>
+                                <th id="A-6" >1</th>
                             </tr>
                             <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
+                                <th id="A-7" >1</th>
+                                <th id="A-8" >1</th>
+                                <th id="A-9" >1</th>
                             </tr>
                         </tbody>
                     </table>
                 </th>
-                <th class="bg-uretken">
+                <th class="bg-yellowgreen">
                     <table style="width: 120px; height: 120px;" class="table table-bordered m-1">
                         <tbody>
                             <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
+                                <th id="B-1" >1</th>
+                                <th id="B-2" >1</th>
+                                <th id="B-3" >1</th>
                             </tr>
                             <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
+                                <th id="B-4" >1</th>
+                                <th id="B-5" >1</th>
+                                <th id="B-6" >1</th>
                             </tr>
                             <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
+                                <th id="B-7" >1</th>
+                                <th id="B-8" >1</th>
+                                <th id="B-9" >1</th>
                             </tr>
                         </tbody>
                     </table>
                 </th>
-                <th class="bg-uretken">
+                <th class="bg-yellowgreen">
                     <table style="width: 120px; height: 120px;" class="table table-bordered m-1">
                         <tbody>
                             <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
+                                <th id="C-1" >1</th>
+                                <th id="C-2" >1</th>
+                                <th id="C-3" >1</th>
                             </tr>
                             <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
+                                <th id="C-4" >1</th>
+                                <th id="C-5" >1</th>
+                                <th id="C-6" >1</th>
                             </tr>
                             <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                            </tr>
-                        </tbody>
-                    </table>
-                </th>
-            </tr>
-            <tr>
-                <th class="bg-uretken">
-                    <table style="width: 120px; height: 120px;" class="table table-bordered m-1">
-                        <tbody>
-                            <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                            </tr>
-                            <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                            </tr>
-                            <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                            </tr>
-                        </tbody>
-                    </table>
-                </th>
-                <th class="bg-uretken">
-                    <table style="width: 120px; height: 120px;" class="table table-bordered m-1">
-                        <tbody>
-                            <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                            </tr>
-                            <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                            </tr>
-                            <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                            </tr>
-                        </tbody>
-                    </table>
-                </th>
-                <th class="bg-uretken">
-                    <table style="width: 120px; height: 120px;" class="table table-bordered m-1">
-                        <tbody>
-                            <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                            </tr>
-                            <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                            </tr>
-                            <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
+                                <th id="C-7" >1</th>
+                                <th id="C-8" >1</th>
+                                <th id="C-9" >1</th>
                             </tr>
                         </tbody>
                     </table>
                 </th>
             </tr>
             <tr>
-                <th class="bg-uretken">
+                <th class="bg-yellowgreen">
                     <table style="width: 120px; height: 120px;" class="table table-bordered m-1">
                         <tbody>
                             <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
+                                <th id="D-1" >1</th>
+                                <th id="D-2" >1</th>
+                                <th id="D-3" >1</th>
                             </tr>
                             <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
+                                <th id="D-4" >1</th>
+                                <th id="D-5" >1</th>
+                                <th id="D-6" >1</th>
                             </tr>
                             <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
+                                <th id="D-7" >1</th>
+                                <th id="D-8" >1</th>
+                                <th id="D-9" >1</th>
                             </tr>
                         </tbody>
                     </table>
                 </th>
-                <th class="bg-uretken">
+                <th class="bg-yellowgreen">
                     <table style="width: 120px; height: 120px;" class="table table-bordered m-1">
                         <tbody>
                             <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
+                                <th id="E-1" >1</th>
+                                <th id="E-2" >1</th>
+                                <th id="E-3" >1</th>
                             </tr>
                             <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
+                                <th id="E-4" >1</th>
+                                <th id="E-5" >1</th>
+                                <th id="E-6" >1</th>
                             </tr>
                             <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
+                                <th id="E-7" >1</th>
+                                <th id="E-8" >1</th>
+                                <th id="E-9" >1</th>
                             </tr>
                         </tbody>
                     </table>
                 </th>
-                <th class="bg-uretken">
+                <th class="bg-yellowgreen">
                     <table style="width: 120px; height: 120px;" class="table table-bordered m-1">
                         <tbody>
                             <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
+                                <th id="F-1" >1</th>
+                                <th id="F-2" >1</th>
+                                <th id="F-3" >1</th>
                             </tr>
                             <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
+                                <th id="F-4" >1</th>
+                                <th id="F-5" >1</th>
+                                <th id="F-6" >1</th>
                             </tr>
                             <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
+                                <th id="F-6" >1</th>
+                                <th id="F-7" >1</th>
+                                <th id="F-8" >1</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </th>
+            </tr>
+            <tr>
+                <th class="bg-yellowgreen">
+                    <table style="width: 120px; height: 120px;" class="table table-bordered m-1">
+                        <tbody>
+                            <tr>
+                                <th id="G-1" >1</th>
+                                <th id="G-2" >1</th>
+                                <th id="G-3" >1</th>
+                            </tr>
+                            <tr>
+                                <th id="G-4" >1</th>
+                                <th id="G-5" >1</th>
+                                <th id="G-6" >1</th>
+                            </tr>
+                            <tr>
+                                <th id="G-7" >1</th>
+                                <th id="G-8" >1</th>
+                                <th id="G-9" >1</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </th>
+                <th class="bg-yellowgreen">
+                    <table style="width: 120px; height: 120px;" class="table table-bordered m-1">
+                        <tbody>
+                            <tr>
+                                <th id="H-1" >1</th>
+                                <th id="H-2" >1</th>
+                                <th id="H-3" >1</th>
+                            </tr>
+                            <tr>
+                                <th id="H-4" >1</th>
+                                <th id="H-5" >1</th>
+                                <th id="H-6" >1</th>
+                            </tr>
+                            <tr>
+                                <th id="H-7" >1</th>
+                                <th id="H-8" >1</th>
+                                <th id="H-9" >1</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </th>
+                <th class="bg-yellowgreen">
+                    <table style="width: 120px; height: 120px;" class="table table-bordered m-1">
+                        <tbody>
+                            <tr>
+                                <th id="J-1" >1</th>
+                                <th id="J-2" >1</th>
+                                <th id="J-3" >1</th>
+                            </tr>
+                            <tr>
+                                <th id="J-4" >1</th>
+                                <th id="J-5" >1</th>
+                                <th id="J-6" >1</th>
+                            </tr>
+                            <tr>
+                                <th id="J-7" >1</th>
+                                <th id="J-8" >1</th>
+                                <th id="J-9" >1</th>
                             </tr>
                         </tbody>
                     </table>
@@ -238,17 +228,13 @@
         </tbody>
     </table>
 
-
-
-    <!-- Optional JavaScript; choose one of the two! -->
-
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous">
     </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
+

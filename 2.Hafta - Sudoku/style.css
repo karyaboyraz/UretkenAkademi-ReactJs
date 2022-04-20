@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box ;
+    
+}
+th {
+    text-align: center;
+}
+
+table {
+    width: fit-content;
+}
+
+th {
+    padding: 0 !important;
+    width: 10px !important;
+    height: 10px !important;
+    background-color: white;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.bg-yellowgreen {
+    background-color: yellowgreen;
+}
+.table {
+    width: max-content;
+    height: max-content;
+}
