@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Label, Input, FormGroup, Form, Container, Row, Col, InputGroup, Button } from "reactstrap";
 import Card from "./Card";
 import "./Card.css";
-import "./asset/rain.jpg";
 const options = [
   {
     label: "Bulutlu",
@@ -66,9 +65,7 @@ export default class inputArea extends Component {
     }
   }
   tempratureChange(e) {
-    console.log(e.target.value);
     this.setState({ celcius: e.target.value });
-    console.log(e);
     let eInt = parseInt(e.target.value);
     let kelvin = eInt + 273.15;
     this.setState({ kelvin: kelvin });
