@@ -20,10 +20,6 @@ const options = [
     value: "Karlı",
   },
   {
-    label: "Rüzgarlı",
-    value: "Rüzgarlı",
-  },
-  {
     label: "Fırtına",
     value: "Fırtına",
   },
@@ -34,8 +30,8 @@ export default class inputArea extends Component {
     super(props);
     this.state = {
       weather: "Bulutlu",
-      city: "a",
-      country: "Çankaya",
+      city: "City",
+      country: "Country",
       celcius: "10",
       fahrenheit: "50",
       kelvin: "283.15",
@@ -53,15 +49,13 @@ export default class inputArea extends Component {
     if (e.target.value === "Karlı") {
       this.setState({ img: "url('https://i.pinimg.com/originals/e2/0a/1b/e20a1b24748abbb5d174c330a1d77fc3.jpg')" });
     } else if (e.target.value === "Güneşli") {
-      this.setState({ img: "url('https://media.istockphoto.com/vectors/cloudscape-blue-sky-with-clouds-and-sun-paper-art-style-vector-id916944562?k=20&m=916944562&s=612x612&w=0&h=7aUFQSoVHWGpv6AqKhGXLna9IVCVQ99qcUML3xwJ7Ro=')" });
-    } else if (e.target.value === "Rüzgarlı") {
-      this.setState({ img: "url('https://scijinks.gov/resources/icons/storm-surge.png')" });
+      this.setState({ img: "url('https://media.istockphoto.com/vectors/sky-background-with-sun-and-white-bottom-vector-id962117766?k=20&m=962117766&s=612x612&w=0&h=wYEiEtuwj7TJjrOnIg2RRBI-GePDT1U2IT59dsmcLdw=')" });
     } else if (e.target.value === "Bulutlu") {
       this.setState({ img: "url('https://media.istockphoto.com/vectors/blue-sky-and-clouds-seamless-vector-background-vector-id1163292935?k=20&m=1163292935&s=612x612&w=0&h=UkJc7uklb677HRh_Mn-5mrFM1cy4u8xJUxiYl4540eQ=')" });
     } else if (e.target.value === "Fırtına") {
       this.setState({ img: "url('https://media.istockphoto.com/vectors/lightning-with-cityscape-vector-illustration-vector-id1255420412?k=20&m=1255420412&s=612x612&w=0&h=Vm6jSBwfK07BtDAB2gmSV1i3j1dQqBCaTN_aqu4X4vw=')" });
     } else if (e.target.value === "Yağmurlu") {
-      this.setState({ img: "url('https://img.freepik.com/free-vector/girl-with-umbrella_1325-5.jpg?size=338&ext=jpg')" });
+      this.setState({ img: "url('https://media.istockphoto.com/vectors/background-night-sky-rain-clouds-layered-vector-vector-id1225901107?k=20&m=1225901107&s=612x612&w=0&h=rDdlAiFOrJJKQ69vaKxxqryoDOo9CkeXjx2lwovVb5Y=')" });
     }
   }
   tempratureChange(e) {

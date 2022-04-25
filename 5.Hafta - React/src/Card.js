@@ -29,15 +29,13 @@ export default class Card extends Component {
               <li className="text-dark d-flex justify-content-between">
                 <span>Fahrenheit</span>
                 <span>
-                  <span className="lnr lnr-sun"></span>
                   <span className="m-2">{fahrenheit}</span>
                   <sup>o</sup>F
                 </span>
               </li>
-              <li className="d-flex justify-content-between mt-1">
+              <li className="text-dark d-flex justify-content-between mt-1">
                 <span>Kelvin</span>
                 <span>
-                  <span className="lnr lnr-cloud"></span>
                   <span className="m-3">{kelvin}</span>
                   <span>K</span>
                 </span>
