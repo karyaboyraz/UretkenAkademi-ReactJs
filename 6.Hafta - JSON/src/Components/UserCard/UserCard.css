@@ -1,0 +1,13 @@
+.card {
+  min-width: 300px;
+  border-radius: 10px;
+  background-color: #393e46;
+}
+.profileButton:hover {
+  color: #fff;
+  -webkit-box-shadow: 1px 1px 12px 9px rgba(0, 173, 181, 0.29);
+  box-shadow: 1px 1px 12px 9px rgba(0, 173, 181, 0.29);
+}
+i{
+  cursor: pointer;
+}
